@@ -36,5 +36,4 @@ ADD pytivo.sh /etc/my_init.d/pytivo.sh
 RUN chmod +x /etc/my_init.d/pytivo.sh
 
 # Clean up APT when done.
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-# TODO: Can we remove build-essential?
+RUN apt-get remove build-essential && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
