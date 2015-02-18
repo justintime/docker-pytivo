@@ -1,4 +1,4 @@
-FROM phusion/baseimage:0.9.11
+FROM phusion/baseimage:0.9.16
 MAINTAINER Justin Ellison <justin@techadvise.com>
 
 # Set correct environment variables.
