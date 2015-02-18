@@ -1,5 +1,16 @@
 This is a Dockerfile for the latest lucansnz version of pyTivo
 
+To install Docker on a fresh install of Ubuntu 14.04 Server:
+```
+sudo su -
+[ -e /usr/lib/apt/methods/https ] || {   apt-get update;   apt-get install apt-transport-https; }
+apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
+sh -c "echo deb https://get.docker.com/ubuntu docker main > /etc/apt/sources.list.d/docker.list"
+apt-get update
+apt-get upgrade
+apt-get install lxc-docker
+```
+
 For maximum flexibility on file transfers, run it in host mode:
 ```
 docker run -d --net="host" --name="pytivo" -v /path/to/media/:/media -v /path/to/config:/config -v /etc/localtime:/etc/localtime:ro pinion/docker-pytivo
