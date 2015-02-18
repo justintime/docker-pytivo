@@ -1,5 +1,5 @@
 FROM phusion/baseimage:0.9.11
-MAINTAINER pinion <pinion@gmail.com>
+MAINTAINER Justin Ellison <justin@techadvise.com>
 
 # Set correct environment variables.
 ENV DEBIAN_FRONTEND noninteractive
