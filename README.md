@@ -11,6 +11,8 @@ apt-get upgrade
 apt-get install lxc-docker
 ```
 
+- Clone this repo (to where?)
+- 
 For maximum flexibility on file transfers, run it in host mode:
 ```
 docker run -d --net="host" --name="pytivo" -v /path/to/media/:/media -v /path/to/config:/config -v /etc/localtime:/etc/localtime:ro pinion/docker-pytivo
