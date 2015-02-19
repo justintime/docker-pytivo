@@ -18,7 +18,9 @@ wget http://repo.or.cz/w/pyTivo/wmcbrine/lucasnz.git/snapshot/2f1f223bd62e30a477
 cat <<EOD > /etc/my_init.d/pytivo.sh
 #!/bin/bash
 
-/sbin/setuser nobody cp -R -u -p /opt/pytivo/lucasnz/pyTivo.conf.dist /config/pyTivo.conf
+if [ ! -e /config/pyTivo.conf ]; then
+  /sbin/setuser nobody cp -R -u -p /opt/pytivo/lucasnz/pyTivo.conf.dist /config/pyTivo.conf
+fi
 exec /sbin/setuser nobody python /opt/pytivo/lucasnz/pyTivo.py -c /config/pyTivo.conf > /config/pyTivo.log 2>&1
 EOD
 chmod 755 /etc/my_init.d/pytivo.sh
