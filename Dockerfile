@@ -11,7 +11,6 @@ ADD . /build
 
 RUN /build/prepare.sh && \
 	/build/install.sh && \
-	/build/services.sh && \
 	/build/cleanup.sh
 
 

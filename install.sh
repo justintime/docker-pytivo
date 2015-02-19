@@ -32,19 +32,3 @@ cd /opt/tivodecode-0.2pre4
 make
 make install
 
-VOLUME /config
-VOLUME /media
-
-EXPOSE 2190
-EXPOSE 9032
-
-# Add pytivo.sh to execute during container startup
-RUN mkdir -p /etc/my_init.d
-ADD pytivo.sh /etc/my_init.d/pytivo.sh
-RUN chmod +x /etc/my_init.d/pytivo.sh
-
-# Clean up APT when done.
-RUN apt-get -y remove build-essential && \
-  apt-get -y autoremove && \
-  apt-get clean && \
-  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
