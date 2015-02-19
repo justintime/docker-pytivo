@@ -22,15 +22,15 @@ The first run will pull the container image down to your local machine.
 If you have a copy of `pyTivo.conf` you'd like to use, place it in the directory at `/path/to/config` as below before starting.  If you don't have one, no worries!  A default one will be created for you. 
 
 For maximum flexibility on file transfers, run the containter in host mode:
-```bash
-docker run -d --net="host" --name="pytivo" -v /path/to/media/:/media \
-  -v /path/to/config:/config -v /etc/localtime:/etc/localtime:ro justintime/pytivo
+```
+docker run -d --restart=always --net="host" --name="pytivo" -v /net/je-nas/c/media:/media \
+  -v /home/justintime/pytivo:/config -v /etc/localtime:/etc/localtime:ro justintime/pytivo
 ```
 
 If you don't need to push files (see below), you can use bridge mode:
-```bash
-docker run -p 9032:9032 -p 2190:2190/udp -d -h pytivo --name="pytivo" -v /path/to/media/:/media \
-  -v /path/to/config:/config -v /etc/localtime:/etc/localtime:ro justintime/pytivo
+```
+docker run -p 9032:9032 -p 2190:2190/udp -d --restart=always -h pytivo --name="pytivo" -v /net/je-nas/c/media:/media \
+  -v /home/justintime/pytivo:/config -v /etc/localtime:/etc/localtime:ro justintime/pytivo
 ```
 # Configuration
 If you already had a `pyTivo.conf` file, you're done!  If not, follow these steps:
